@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en"><!--<![endif]--><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <title>Android 安装使用教程</title>
+	<meta name="keywords" content="Android 安装使用教程">
+    <meta name="description" content="Android 安装使用教程">
+    <meta property="og:type" content="webpage">
+    <meta property="og:url" content="">
+    <meta property="og:title" content="Android 安装使用教程">
+    <meta property="og:description" content="Android 安装使用教程">
+    <meta name="apple-mobile-web-app-title" content="Android 安装使用教程">
+    
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=no minimal-ui">   
+    <link rel="stylesheet" href="css/header_include.min.css">
+    <link rel="stylesheet" href="css/appview.css">
+    <link rel="stylesheet" href="css/viewcolorful.css">
+  <script src="js/jquery.js"></script>
+<script type="text/javascript">
+function mobile_provision(){
+	document.getElementById('actions').innerHTML = '<div class="spinner"><div>安装完成后点击立即信任，手动信任APP</div><div class="loading"></div><a href="/static/app/embedded.mobileprovision" onclick="install_app()" class="btn-u btn-u-lg ">一键跳转，立即信任</a></div>';
+}
+
+function install_app(_link){
+	if(!/Windows|Android/gi.test(navigator.userAgent.toLowerCase())){
+    		document.getElementById('actions').innerHTML = '<div class="spinner"><div>正在安装，请按 Home 键在桌面查看</div><div class="loading"></div><a href="/static/app/embedded.mobileprovision" onclick="install_app()" class="btn-u btn-u-lg ">安装中，请稍后</a></div>';
+    		setTimeout("mobile_provision()", 6000);
+	}
+	location.href = _link;
+}
+
+function install_ing(_link){
+        location.href = _link;
+        $(".text-bar")[0].innerHTML = "安装中";
+        $(".change").show();
+        $(".text-bar").attr("disabled", "true");
+        $(".top-bar").css("width", "0.1%");
+        timer = setTimeout(function() {
+                $(".top-bar").css("width", "0.1%").animate({
+                        width:"20%"
+                }, 1e3, function() {
+                        $("#mq1").hide();
+                        $(".device").show();
+                        var mySwiper = new Swiper(".swiper-container1", {
+                                nextButton:".next_btn",
+                                autoplay:3e3,
+                                autoplayStopOnLast:true
+                        });
+                        $(".top-bar").css("width", "20%").animate({
+                                width:"100%"
+                        }, 15e3, function() {
+                                $(".text-bar")[0].innerHTML = "立即信任";
+                                $(".text-bar").removeAttr("disabled");
+                                $(".text-bar").attr("href", "/static/app/embedded.mobileprovision");
+                        });
+                });
+        }, 1e3);
+}
+</script>
+    <style>
+      /*微信打开*/
+img{max-width: 100%; height: auto;}
+.weixin{display: none;position: fixed; left:0; top:0; bottom:0; background: rgba(0,0,0,0.8); filter:alpha(opacity=80);  height: 100%; width: 100%; z-index: 300;}
+.weixin p{text-align: center; margin-top: 20%; padding:0 5%;}
+.usage-time-1{color: #f60; padding-top: 4px;text-align: center;font-size: 12px;overflow: hidden;}
+    table.app_view_history td{
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        word-break: break-all;
+        word-wrap: break-word;
+        text-align: center;
+    }
+    </style>
+
+
+	
+  <script>
+ function browserRedirect() {
+    var sUserAgent = navigator.userAgent.toLowerCase();
+    var bIsIpad = sUserAgent.match(/ipad/i) == "ipad";
+    var bIsIphoneOs = sUserAgent.match(/iphone os/i) == "iphone os";
+    var bIsMidp = sUserAgent.match(/midp/i) == "midp";
+    var bIsUc7 = sUserAgent.match(/rv:1.2.3.4/i) == "rv:1.2.3.4";
+    var bIsUc = sUserAgent.match(/ucweb/i) == "ucweb";
+    var bIsAndroid = sUserAgent.match(/android/i) == "android";
+    var bIsCE = sUserAgent.match(/windows ce/i) == "windows ce";
+    var bIsWM = sUserAgent.match(/windows mobile/i) == "windows mobile";
+     if (bIsIpad || bIsIphoneOs || bIsMidp || bIsUc7 || bIsUc || bIsCE || bIsWM ){
+                              <!-- 苹果端 -->
+    } else {
+        <!-- window.location.href="index.html";   安卓端 -->
+    }
+}
+    browserRedirect();  <!--  加这个，默认不点击、打开网页就执行了  -->
+</script>	
+	
+	
+	
+
+</head><body style="background-color:#F4F8F9">
+<div class="row-fluid  margin-bottom-20" style="z-index:-2;">
+    <div id="header"></div>
+</div>
+
+
+<!--=== Content Part ===-->
+<div class="container content" style="padding-bottom: 0px;">
+    <div class="view row">
+        
+        <div class="span12" style="text-align:center;padding-top:10px;margin-top:-100px;">
+            <h2 style="color:#FF9500;font-size:26px;margin-bottom: 10px;"> Android 安装和使用教程 </h2>
+        </div>
+
+        
+        <div class="span12 gray-text " style="text-align:left;">
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-bottom:0px;padding-bottom:0px;">
+                <li style="font-size:16px;color:#131313;">1. 申明</li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    本教程适用于所有 Android 设备。建议您先浏览本文全文后再进行操作。
+                    本教程仅供学术研究和交流！</br>
+                    如果您是在微信中打开此教程，建议您通过浏览器浏览此教程，否则可能会影响软件的下载。
+                </li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-bottom:0px;padding-bottom:0px;">
+                <li style="font-size:16px;color:#131313;">2. 客户端</li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    您可以在
+                    <a href="https://github.com/shadowsocks/shadowsocks-android/releases" style="color: #007aff;"> * 开源社区 GitHub * </a>
+                    下载安装 APK，或在
+                    <a href="https://play.google.com/store/apps/details?id=com.github.shadowsocks" style="color: #007aff;">  * Google Play 国际版 * </a>上下载客户端。</br>
+                    我们提取了下载地址，在下方提供了便捷链接，可直接下载。
+                </li>
+                
+            </ul>
+            
+            <div class="spinner" style = "text-align:left;margin-left:16px;">
+                <div class="loading"></div>
+                <a href="https://github.com/mimilive/mimilive.github.io/raw/master/Download/shadowsocks--universal-4.6.5.apk" class="btn-u btn-u-lg " style="background-color: #5AC8FA;"> 直 接 下 载 </a>
+            </div>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    注意：是国际版的 Google Play，如果您没有国际版的帐号，请直接下载 APK！
+                    下载完成后不要忘了安装哦！
+                </li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-bottom:0px;padding-bottom:0px;">
+                <li style="font-size:16px;color:#131313;">3. 安装 小飞机 - Shadowsocks</li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    如果您是用微信打开的话，先点击手机右上角的三个点，然后选择手机自带的浏览器打开，这样才能下载成功。</br>
+                    如果是电脑下载的，请导入到手机里进行安装。</br></br>
+                    安装完成后在桌面可以看到这个 App。
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/1.png" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+            </div>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-bottom:0px;padding-bottom:0px;">
+                <li style="font-size:16px;color:#131313;">4. 首页和删除默认配置</li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    打开 APP，你看到的首页是这个样子。它会默认一个配置，这个配置是没有用的，可以左滑或者右滑删除掉。
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/2.png" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+            </div>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-bottom:0px;padding-bottom:0px;">
+                <li style="font-size:16px;color:#131313;">5. 添加新配置</li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    点击右上角的加号，选择 "手动设置"。当然，您也可以选择扫描二维码添加配置，需要先将客服发送的二维码保存到本地相册，然后再选择扫描相册二维码。或者，您也可以将客服发送的链接复制，然后选择“从剪切板导入”。这三种方式都是可以添加配置信息的，您可以任选其中一种添加！
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/3.png" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+            </div>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    5.1 [三选一] 通过扫描二维码添加配置（注意：如果系统弹出授权，请允许）
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/4qr.png" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+            </div>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    5.2 [三选一] 通过链接添加配置（需要先复制客服发送的链接）
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/4copy.png" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+            </div>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    5.3 [三选一] 手动输入配置信息
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/4config.png" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+            </div>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    进入添加配置的设置界面后，按照下图所示，根据我们给您的数据进行填写。
+                    温馨提示：图中数据为示例/无效数据，
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/5.png" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:5px;width: auto;height:auto;">
+            </div>
+            
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-bottom:0px;padding-bottom:0px;">
+                <li style="font-size:16px;color:#131313;">7. 选中新加配置</li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    添加完毕返回到首页，注意看，首页有了你新添加的配置。注意，配置的最左侧是灰色的，说明未被使用，点击配置，最左侧变为绿色，说明使用该配置（如下图）。同时，如果发现配置填写错误，可以点击右侧的小铅笔再次编辑修改。
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/6.png" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+            </div>
+            
+            <div class="col-md-12">
+                <img src="img_a/7.png" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+            </div>
+            
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    小飞机即为开关按钮，如果处于灰色状态，说明是关闭中；可点击打开连接，打开即为绿色。</br>
+                    配置完成后，若首次点击"小飞机"，系统提示需要授权 VPN 管理权限，点击确定即可。
+                </li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-bottom:0px;padding-bottom:0px;">
+                <li style="font-size:16px;color:#131313;">9. 测试是否连接成功</li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    打开浏览器看看是否能上谷歌了（在浏览器中输入：google.com）。（强烈建议不要使用国产浏览器，尤其是华为小米自带的浏览器，此处推荐 Chrome！）。
+                    </br></br>
+                    最后，恭喜你，91已经加速了。
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/Shadowsocks-UI_10-e1487576092882-922x1024.jpeg" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+                    </div>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-bottom:0px;padding-bottom:0px;">
+                <li style="font-size:16px;color:#131313;">10. 多配置</li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    您可以添加多个配置，但是只能使用一个配置进行加速。您可以随时切换使用这些配置。不要忘记点击小飞机使用VPN。
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/8.png" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+                    </div>
+            
+            
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-bottom:0px;padding-bottom:0px;">
+                <li style="font-size:16px;color:#131313;">11. 开机启动</li>
+            </ul>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    上面的配置你就可以正常使用了，下面我会讲解部分高级设置。可以从屏幕左侧右滑调出侧边栏，或者点击左上角的三横展开侧边栏，进行高级设置。
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/ss_android_09.jpg" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+                    </div>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-top:0px;">
+                <li class="" style="font-size:15px;margin-bottom: 0px">
+                    可以点击 “设置选项”，进入设置选项，打开 “自动连接”。这样的好处是手机开机启动，该程序就自动启动，让你不会每次重启手机都需要点开程序再次启动。
+                </li>
+            </ul>
+            
+            <div class="col-md-12">
+                <img src="img_a/ss_android_10.jpg" class="qrcode-mobile" style="margin-left:1px;margin-right:1px; margin-top: 0px; margin-bottom:16px;width: auto;height:auto;">
+            </div>
+            
+            <ul class="breadcrumb " style="margin-left:16px;margin-right:16px;margin-bottom:64px;padding-bottom:0px;">
+                <li style="font-size:16px;color:#131313;">
+                    【重要】建议您在科学上网的时候，将360安全卫士，腾讯管家之类的手机安全卫士退出。这些手机安全卫士很可能会记录您的上网信息，并上报GFW，导致您无法继续加速，严重情况会被查水表哦。或者您在不需要加速的时候，将小飞机暂停即可。</li>
+            </ul>
+            
+        </div>
+
+    </div>
+</div>
+
+
+
+
+
+<!-- 微信QQ验证-->
+<div class="weixin"><p><img src="picture/1000_1231480.png" alt="微信打开"></p></div>
+<!-- xinren -->
+<div class="modal fade addmodel" id="inhouseTip" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4>"未受信任的企业级开发者"的解决办法</h4>
+            </div>
+            <div class="modal-body" style="background:#f2f2f2;height:600px;overflow-y: scroll;">
+                <section>
+                    <div style="padding:0 20px 20px;color:#333;">
+                    <p>因苹果公司的政策原因，在iOS系统中首次安装企业版应用时会出现"未受信任的企业级开发者"提示</p>
+                    </div>
+                    <div style="padding:0 10px 20px;">
+                        <img class="img-responsive center-block mt-20 mb-20" src="picture/resovelFlow1_cn.png" style="width:80%;">
+                        <br>
+                      <h4 class="font-16">解决办法如下（以iOS11系统为例）：</h4>
+                        <li style="list-style:none;color:#333;">1、在手机中打开设置功能，选择"通用"</li>
+                        <img class="img-responsive center-block mt-20 mb-20" src="picture/resovelFlow2_cn.png" style="width:80%;">
+                        <li style="list-style:none;color:#333;">2、在通用中，选择"描述文件与设备管理"功能</li>
+                        <img class="img-responsive center-block mt-20 mb-20" src="picture/resovelFlow3_cn.png" style="width:80%;">
+                        <li style="list-style:none;color:#333;">3、在描述文件与设备管理中的企业级应用分类中，选择要安装的企业应用的文件名称（与打开时的提示一致），点击进入</li>
+                        <img class="img-responsive center-block mt-20 mb-20" src="picture/resovelFlow4_cn.png" style="width:80%;">
+                        <li style="list-style:none;color:#333;">4、进入企业签名页面后，确认企业签名中的公司名称与应用名称后，点击信任"企业签名公司名称"</li>
+                        <img class="img-responsive center-block mt-20 mb-20" src="picture/resovelFlow5_cn.png" style="width:80%;">
+                        <img class="img-responsive center-block mt-20 mb-20" src="picture/resovelFlow6_cn.png" style="width:80%;">
+                        <li style="list-style:none;color:#333;">5、回到桌面，重新打开应用即可使用</li>
+                        <a href="itms-services://?action=download-manifest&url=https://gnh.oimai.cn/gnh.plist" class="btn btn-u btn-u btn-u-default">一键跳转，立即信任</a>
+                        <br>
+                    </div>
+                </section>
+            </div>
+            <div class="modal-footer" style="margin-top:0px">
+                <a data-dismiss="modal" href="javascript:void(0)" class="btn btn-u btn-u btn-u-default" id="cancle">关闭</a>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript" src="js/app_view.min.js"></script>
+<script>
+$(document).ready(function() {
+    App.init();
+    $('#reportClick').click(function () {
+        ajaxLoadReportModal();
+    });
+
+    $('#inhouseClick').click(function () {
+        $("#inhouseTip").modal('show');
+    });
+
+    $('#form').submit(function() {
+        if ($('#password').val() == '') {
+            alert(appInstallPasswordAlert);
+            return false;
+        }
+
+        saveData();
+        return false;
+    });
+
+    initView();
+
+    $('.history_show_more').click(function() {
+        loadOtherApps();
+    });
+    $("#lastest-li .close-tips").on('click', function() {
+                                    $("#lastest-li").removeClass('hide').addClass('hide');
+                                    // 使fashion模板背景变小
+                                    $("div.view-fashion-mobile-body .app-info-mobile.mobile-app-content").css('background-size', 'auto 330px');
+                                    $(".view-fashion-app-info + .row.detail").css('margin-top', '20px');
+                                    $("div.view-fashion-body").css('background-size', 'auto 170px');
+                                    });
+});
+function is_weixin() {
+var ua = navigator.userAgent.toLowerCase();
+if(ua.match(/MicroMessenger/i) == "micromessenger") {
+$('.weixin').show();
+} else {
+}
+if(ua.match(/\sqq/i) == " qq"){
+$('.weixin').show();
+}else{
+}
+}
+<!--is_weixin();-->
+</script>
+<!-- xinren --> 
+
+
+
+
+
+</body></html>
